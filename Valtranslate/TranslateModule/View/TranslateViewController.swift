@@ -17,6 +17,7 @@ class TranslateViewController: UIViewController {
     
     // MARK:- Dependencies
     weak var coordinator: AppCoordinator?
+    var viewModel: TranslateViewModel!
     
     // MARK:- Views
     lazy var historyCollectionView: UICollectionView = {
@@ -34,21 +35,22 @@ class TranslateViewController: UIViewController {
         view.backgroundColor = .mainPurple
         
         setupCollectionView()
-        
-        let items = Observable.just(
-            (0..<4).map{ "Test \($0)" }
-        )
-
-         items
+        setupNavigationBar()
+        setupBindings()
+    }
+    
+    // MARK:- Setups
+    private func setupBindings() {
+        viewModel.historyItems
              .bind(to: historyCollectionView.rx.items(cellIdentifier: collectionViewCellId, cellType: HistoryCollectionViewCell.self)) { (row, element, cell) in
                 
-                cell.lastTranslatedLabel.text = element
-                cell.lastTranslationLabel.text = element
+                cell.lastTranslatedLabel.text = element.wordToTranslate
+                cell.lastTranslationLabel.text = element.translatedWord
              }
              .disposed(by: disposeBag)
     }
     
-    // MARK:- Setups
+    // MARK:- Views' Setups
     private func setupHistoryCollectionViewLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -74,5 +76,11 @@ class TranslateViewController: UIViewController {
             make.trailing.equalTo(view)
             make.height.equalTo(170)
         }
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.barTintColor = .mainOrange
+        title = "Translate"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 }

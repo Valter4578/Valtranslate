@@ -37,4 +37,8 @@ extension UIColor {
     static var accentPurple: UIColor {
         return UIColor.hexStringToUIColor(hex: "543C52")
     }
+    
+    static var mainOrange: UIColor {
+        return UIColor.hexStringToUIColor(hex: "F55951")
+    }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880697952663E2C600BF45C3 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880697942663E2C500BF45C3 /* HistoryItem.swift */; };
 		880D328226639CAA0061C054 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880D328126639CAA0061C054 /* HistoryCollectionViewCell.swift */; };
 		880D32862663D80F0061C054 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880D32852663D80F0061C054 /* UIColor+Extension.swift */; };
 		883C16B82663812000C5D0A7 /* TranslateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C16B72663812000C5D0A7 /* TranslateResponse.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		880697942663E2C500BF45C3 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
 		880D328126639CAA0061C054 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		880D32852663D80F0061C054 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		883C16B72663812000C5D0A7 /* TranslateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponse.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				883C16B72663812000C5D0A7 /* TranslateResponse.swift */,
+				880697942663E2C500BF45C3 /* HistoryItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				88FDEA6D26637036006F2060 /* Coordinator.swift in Sources */,
 				88FDEA97266376C4006F2060 /* TranslateViewModel.swift in Sources */,
 				88FDEA9226637669006F2060 /* TranslateViewController.swift in Sources */,
+				880697952663E2C600BF45C3 /* HistoryItem.swift in Sources */,
 				88FDEA9F26637C0F006F2060 /* NetworkManager.swift in Sources */,
 				88FDEA7026637092006F2060 /* AppCoordinator.swift in Sources */,
 				880D328226639CAA0061C054 /* HistoryCollectionViewCell.swift in Sources */,
