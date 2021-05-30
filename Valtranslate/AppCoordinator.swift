@@ -13,8 +13,8 @@ class AppCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     func start() {
-        let viewController = ViewController()
-        viewController.view.backgroundColor = .red 
+        let viewController = TranslateViewController()
+        viewController.coordinator = self 
         navigationController.pushViewController(viewController, animated: false)
     }
     
