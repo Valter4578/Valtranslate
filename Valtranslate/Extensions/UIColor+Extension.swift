@@ -41,4 +41,8 @@ extension UIColor {
     static var mainOrange: UIColor {
         return UIColor.hexStringToUIColor(hex: "F55951")
     }
+    
+    static var mainBeige: UIColor {
+        return UIColor.hexStringToUIColor(hex: "EDD2CB")
+    }
 }

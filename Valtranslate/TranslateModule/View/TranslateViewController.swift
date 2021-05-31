@@ -27,6 +27,7 @@ class TranslateViewController: UIViewController {
         return collectionView
     }()
     
+    let bottomSheetViewController = BottomSheetViewController()
     
     // MARK:- Lifecycle
     override func viewDidLoad() {
@@ -37,6 +38,12 @@ class TranslateViewController: UIViewController {
         setupCollectionView()
         setupNavigationBar()
         setupBindings()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setupBottomSheet()
     }
     
     // MARK:- Setups
@@ -58,7 +65,6 @@ class TranslateViewController: UIViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95), heightDimension: .fractionalHeight(0.95))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
-
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
@@ -82,5 +88,22 @@ class TranslateViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .mainOrange
         title = "Translate"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
+    private func setupBottomSheet() {
+        addChild(bottomSheetViewController)
+        view.addSubview(bottomSheetViewController.view)
+        bottomSheetViewController.didMove(toParent: self)
+        
+        let height = view.frame.height - historyCollectionView.frame.maxY
+        let width = view.frame.width
+        let y = view.frame.height - height
+        
+        bottomSheetViewController.view.frame = CGRect(x: 0, y: view.frame.maxY, width: width, height: height)
+        
+        UIView.animate(withDuration: 0.3) { [self] in
+            self.bottomSheetViewController.view.frame = CGRect(x: 0, y: y, width: width, height: height)
+            self.bottomSheetViewController.view.layer.cornerRadius = 20
+        }
     }
 }
