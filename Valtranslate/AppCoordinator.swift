@@ -15,7 +15,8 @@ class AppCoordinator: Coordinator {
     func start() {
         let viewController = TranslateViewController()
         viewController.coordinator = self
-        viewController.viewModel = TranslateViewModel()
+        let networkManager = NetworkManager() 
+        viewController.viewModel = TranslateViewModel(networkManager: networkManager)
         navigationController.pushViewController(viewController, animated: false)
     }
     

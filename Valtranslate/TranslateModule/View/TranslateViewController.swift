@@ -48,13 +48,23 @@ class TranslateViewController: UIViewController {
     
     // MARK:- Setups
     private func setupBindings() {
+        // Outputs
         viewModel.historyItems
              .bind(to: historyCollectionView.rx.items(cellIdentifier: collectionViewCellId, cellType: HistoryCollectionViewCell.self)) { (row, element, cell) in
-                
                 cell.lastTranslatedLabel.text = element.wordToTranslate
                 cell.lastTranslationLabel.text = element.translatedWord
              }
              .disposed(by: disposeBag)
+        
+        viewModel.translatedText
+            .bind(to: bottomSheetViewController.translatedTextView.rx.text)
+            .disposed(by: disposeBag)
+        
+        // Inputs
+        bottomSheetViewController.translateTextView.rx.text
+            .orEmpty
+            .bind(to: viewModel.textToTranslate)
+            .disposed(by: disposeBag)
     }
     
     // MARK:- Views' Setups
