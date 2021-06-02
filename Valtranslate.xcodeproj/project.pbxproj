@@ -12,6 +12,8 @@
 		880D32862663D80F0061C054 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880D32852663D80F0061C054 /* UIColor+Extension.swift */; };
 		882F09482664B85A00228878 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882F09472664B85A00228878 /* BottomSheetViewController.swift */; };
 		883A20E62667991A00C8C950 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A20E52667991A00C8C950 /* UIImage+Extension.swift */; };
+		883A20E92667D69E00C8C950 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A20E82667D69E00C8C950 /* RealmService.swift */; };
+		883A20EE2667D92300C8C950 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 883A20ED2667D92300C8C950 /* RxRealm */; };
 		883C16B82663812000C5D0A7 /* TranslateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C16B72663812000C5D0A7 /* TranslateResponse.swift */; };
 		88BCA6302660C27700E59328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA62F2660C27700E59328 /* AppDelegate.swift */; };
 		88BCA6322660C27700E59328 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA6312660C27700E59328 /* SceneDelegate.swift */; };
@@ -24,7 +26,7 @@
 		88FDEA8B266375AA006F2060 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88FDEA8A266375AA006F2060 /* SnapKit */; };
 		88FDEA9226637669006F2060 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDEA9126637669006F2060 /* TranslateViewController.swift */; };
 		88FDEA97266376C4006F2060 /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDEA96266376C4006F2060 /* TranslateViewModel.swift */; };
-		88FDEA9F26637C0F006F2060 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDEA9E26637C0F006F2060 /* NetworkManager.swift */; };
+		88FDEA9F26637C0F006F2060 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDEA9E26637C0F006F2060 /* NetworkService.swift */; };
 		88FF3FCE26638E3A00152989 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 88FF3FCD26638E3A00152989 /* RxCocoa */; };
 		88FF3FD026638E3A00152989 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 88FF3FCF26638E3A00152989 /* RxSwift */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,7 @@
 		880D32852663D80F0061C054 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		882F09472664B85A00228878 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		883A20E52667991A00C8C950 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		883A20E82667D69E00C8C950 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		883C16B72663812000C5D0A7 /* TranslateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponse.swift; sourceTree = "<group>"; };
 		88BCA62C2660C27700E59328 /* Valtranslate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valtranslate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BCA62F2660C27700E59328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +49,7 @@
 		88FDEA6F26637092006F2060 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		88FDEA9126637669006F2060 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		88FDEA96266376C4006F2060 /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
-		88FDEA9E26637C0F006F2060 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		88FDEA9E26637C0F006F2060 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883A20EE2667D92300C8C950 /* RxRealm in Frameworks */,
 				88FDEA8B266375AA006F2060 /* SnapKit in Frameworks */,
 				88FDEA85266374EC006F2060 /* Moya in Frameworks */,
 				88FF3FD026638E3A00152989 /* RxSwift in Frameworks */,
@@ -115,7 +119,7 @@
 				88975D392667920100BFE3DF /* App */,
 				880D32842663D8020061C054 /* Extensions */,
 				883C16B62663810400C5D0A7 /* Model */,
-				88FDEA9D26637BFE006F2060 /* NetworkLayer */,
+				88FDEA9D26637BFE006F2060 /* ServiceLayer */,
 				88FDEA8D2663763B006F2060 /* TranslateModule */,
 				88BCA63D2660C27A00E59328 /* Info.plist */,
 			);
@@ -160,12 +164,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		88FDEA9D26637BFE006F2060 /* NetworkLayer */ = {
+		88FDEA9D26637BFE006F2060 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				88FDEA9E26637C0F006F2060 /* NetworkManager.swift */,
+				88FDEA9E26637C0F006F2060 /* NetworkService.swift */,
+				883A20E82667D69E00C8C950 /* RealmService.swift */,
 			);
-			path = NetworkLayer;
+			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +195,7 @@
 				88FDEA8A266375AA006F2060 /* SnapKit */,
 				88FF3FCD26638E3A00152989 /* RxCocoa */,
 				88FF3FCF26638E3A00152989 /* RxSwift */,
+				883A20ED2667D92300C8C950 /* RxRealm */,
 			);
 			productName = Valtranslate;
 			productReference = 88BCA62C2660C27700E59328 /* Valtranslate.app */;
@@ -222,6 +228,7 @@
 				88FDEA83266374EC006F2060 /* XCRemoteSwiftPackageReference "Moya" */,
 				88FDEA89266375AA006F2060 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				88FF3FCC26638E3A00152989 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				883A20EC2667D92300C8C950 /* XCRemoteSwiftPackageReference "RxRealm" */,
 			);
 			productRefGroup = 88BCA62D2660C27700E59328 /* Products */;
 			projectDirPath = "";
@@ -254,10 +261,11 @@
 				88FDEA97266376C4006F2060 /* TranslateViewModel.swift in Sources */,
 				88FDEA9226637669006F2060 /* TranslateViewController.swift in Sources */,
 				880697952663E2C600BF45C3 /* HistoryItem.swift in Sources */,
-				88FDEA9F26637C0F006F2060 /* NetworkManager.swift in Sources */,
+				88FDEA9F26637C0F006F2060 /* NetworkService.swift in Sources */,
 				88FDEA7026637092006F2060 /* AppCoordinator.swift in Sources */,
 				880D328226639CAA0061C054 /* HistoryCollectionViewCell.swift in Sources */,
 				882F09482664B85A00228878 /* BottomSheetViewController.swift in Sources */,
+				883A20E92667D69E00C8C950 /* RealmService.swift in Sources */,
 				88BCA6302660C27700E59328 /* AppDelegate.swift in Sources */,
 				88BCA6322660C27700E59328 /* SceneDelegate.swift in Sources */,
 				883C16B82663812000C5D0A7 /* TranslateResponse.swift in Sources */,
@@ -457,6 +465,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		883A20EC2667D92300C8C950 /* XCRemoteSwiftPackageReference "RxRealm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		88FDEA83266374EC006F2060 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -484,6 +500,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		883A20ED2667D92300C8C950 /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 883A20EC2667D92300C8C950 /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
 		88FDEA84266374EC006F2060 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 88FDEA83266374EC006F2060 /* XCRemoteSwiftPackageReference "Moya" */;

@@ -23,9 +23,9 @@ class AppCoordinator: Coordinator {
         
         navigationController.pushViewController(viewController, animated: false)
         
-        let translateImage = UIImage.resizeImage(image: UIImage(named: "translate")!, targetSize: CGSize(width: 32, height: 32))
+        let translateImage = UIImage.resizeImage(image: UIImage(named: "translate")!, targetSize: CGSize(width: 32, height: 32))?.withTintColor(.mainBeige)
         navigationController.tabBarItem = UITabBarItem(title: nil, image: translateImage, selectedImage: nil)
-        
+                
         tabBarController.viewControllers = [navigationController]
     }
     

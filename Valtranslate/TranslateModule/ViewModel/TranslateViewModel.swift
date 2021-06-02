@@ -31,7 +31,7 @@ class TranslateViewModel: TranslateViewModelBase {
             .flatMapLatest{ (text) -> Observable<String> in
                 networkManager.translateText(text).map{ $0.text[0] }
                     .catchErrorJustReturn("Error ocured")
-            }
+            }.throttle(0.3, scheduler: MainScheduler.instance)
 
         let mockHistoryData: [HistoryItem] = [.init(wordToTranslate: "Snake", translatedWord: "Змея"), .init(wordToTranslate: "Car", translatedWord: "Машина"), .init(wordToTranslate: "Король", translatedWord: "King")] // later data will come from realm
         let _historyItems = BehaviorSubject<[HistoryItem]>(value: [])
