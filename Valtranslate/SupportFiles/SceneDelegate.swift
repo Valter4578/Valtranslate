@@ -20,10 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let navigationController = UINavigationController()
-        coordinator = AppCoordinator(navigationController: navigationController)
+        let tabBarController = UITabBarController()
+        
+        coordinator = AppCoordinator(navigationController, tabBarController)
+        
         coordinator?.start()
         
-        window?.rootViewController = navigationController
+        window?.rootViewController = coordinator?.rootViewController
         window?.makeKeyAndVisible()
     }
 
