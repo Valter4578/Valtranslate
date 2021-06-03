@@ -82,7 +82,7 @@ class TranslateViewController: UIViewController {
     
     //MARK:- Private functions
     private func presentErrorAlert(with error: Error) {
-        let alertController = UIAlertController(title: "Error occured", message: error.localizedDescription, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error occurred", message: error.localizedDescription, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(cancelAction)
         
