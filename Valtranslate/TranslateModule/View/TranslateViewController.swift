@@ -60,11 +60,33 @@ class TranslateViewController: UIViewController {
             .bind(to: bottomSheetViewController.translatedTextView.rx.text)
             .disposed(by: disposeBag)
         
+        viewModel.translatedText
+            .debug()
+            .subscribe(onError: { [weak self] error in
+                print(error)
+                self?.presentErrorAlert(with: error)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.error
+            .subscribe { [weak self] error in
+                self?.presentErrorAlert(with: error)
+            }.disposed(by: disposeBag)
+        
         // Inputs
         bottomSheetViewController.translateTextView.rx.text
             .orEmpty
             .bind(to: viewModel.textToTranslate)
             .disposed(by: disposeBag)
+    }
+    
+    //MARK:- Private functions
+    private func presentErrorAlert(with error: Error) {
+        let alertController = UIAlertController(title: "Error occured", message: error.localizedDescription, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
     }
     
     // MARK:- Views' Setups
