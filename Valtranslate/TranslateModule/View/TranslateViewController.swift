@@ -90,7 +90,7 @@ class TranslateViewController: UIViewController {
             make.top.equalTo(view.layoutMarginsGuide)
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
-            make.height.equalTo(170)
+            make.height.equalTo(200)
         }
     }
     

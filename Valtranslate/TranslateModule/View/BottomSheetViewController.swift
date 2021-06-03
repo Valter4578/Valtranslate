@@ -35,12 +35,12 @@ final class BottomSheetViewController: UIViewController {
     
         view.backgroundColor = .white
         
-        setupTextView()
+        setupTranslateTextView()
         setupTranslatedTextView()
     }
     
     // MARK:- Functions
-    private func setupTextView() {
+    private func setupTranslateTextView() {
         view.addSubview(translateTextView)
         translateTextView.layer.cornerRadius = 20
         translateTextView.snp.makeConstraints { make in
@@ -57,6 +57,7 @@ final class BottomSheetViewController: UIViewController {
             make.top.equalTo(translateTextView.snp.bottom)
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
+            make.bottom.equalTo(view)
         }
     }
 }

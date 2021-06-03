@@ -6,14 +6,6 @@
 //
 
 import Foundation
-//
-//{
-//    "code": 200,
-//    "lang": "en-ru",
-//    "text": [
-//        "Здравствуй, Мир!"
-//    ]
-//}
 
 struct TranslateResponse: Codable {
     let code: Int

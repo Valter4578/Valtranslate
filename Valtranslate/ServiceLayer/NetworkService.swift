@@ -38,7 +38,7 @@ extension ApiService: TargetType {
             params["key"] = "trnsl.1.1.20200105T055134Z.7a44cca1172db2a5.461457ea1bca28044e9842532660458ab1f79560"
             params["text"] = text
             params["lang"] = "ru"
-            params["options"] = 1
+            params["options"] = 0
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         default:
             return .requestPlain
@@ -53,12 +53,14 @@ extension ApiService: TargetType {
 class NetworkManager {
     // MARK:- Properties
     private let provider = MoyaProvider<ApiService>()
+    private let disposeBag = DisposeBag()
     
     // MARK:- Methods
-    func translateText(_ text: String) -> Single<TranslateResponse> {
+    func translateText(_ text: String) -> Observable<TranslateResponse> {
         return provider.rx
             .request(.translateText(text: text))
             .filterSuccessfulStatusAndRedirectCodes()
             .map(TranslateResponse.self)
+            .asObservable()
     }
 }

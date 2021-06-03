@@ -13,9 +13,12 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
     // MARK:- Views
     lazy var lastTranslatedLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24)
+        label.font = .systemFont(ofSize: 22)
         label.numberOfLines = 0
         label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
         return label
     }()
     
@@ -24,14 +27,18 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 18)
         label.numberOfLines = 0
         label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
         return label
     }()
     
     lazy var labelsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [lastTranslatedLabel, lastTranslationLabel])
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 5
         stackView.alignment = .center
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -41,7 +48,6 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
         
         contentView.backgroundColor = .accentPurple
         setupTranslatedLabel()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -54,12 +60,11 @@ final class HistoryCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 20
     }
     
-
     // MARK:- Setups
     private func setupTranslatedLabel() {
         contentView.addSubview(labelsStackView)
         labelsStackView.snp.makeConstraints { make in
-            make.center.equalTo(contentView)
+            make.edges.equalTo(contentView).inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         }
     }
 }
