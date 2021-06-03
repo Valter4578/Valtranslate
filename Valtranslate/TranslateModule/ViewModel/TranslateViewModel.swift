@@ -31,7 +31,7 @@ class TranslateViewModel: TranslateViewModelBase {
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .flatMapLatest{ (text) -> Observable<String> in
                 networkManager.translateText(text).map{ $0.text[0] }
-                    .catchErrorJustReturn("Error ocured")
+                    .catchErrorJustReturn("Error occured")
             }
         
         historyItems = realmService.obtain(of: HistoryItem.self)
