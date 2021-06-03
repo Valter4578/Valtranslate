@@ -54,6 +54,7 @@ class NetworkManager {
     // MARK:- Properties
     private let provider = MoyaProvider<ApiService>()
     private let disposeBag = DisposeBag()
+    
     // MARK:- Methods
     func translateText(_ text: String) -> Observable<TranslateResponse> {
         return provider.rx

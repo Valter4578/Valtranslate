@@ -24,19 +24,19 @@ class TranslateViewModel: TranslateViewModelBase {
     let historyItems: Observable<[HistoryItem]>
     let translatedText: Observable<String>
     
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManager, realmService: RealmService) {
         self.networkManager = networkManager
                 
         translatedText = textToTranslate
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .flatMapLatest{ (text) -> Observable<String> in
                 networkManager.translateText(text).map{ $0.text[0] }
                     .catchErrorJustReturn("Error ocured")
-            }.throttle(0.3, scheduler: MainScheduler.instance)
-
-        let mockHistoryData: [HistoryItem] = [.init(wordToTranslate: "Snake", translatedWord: "Змея"), .init(wordToTranslate: "Car", translatedWord: "Машина"), .init(wordToTranslate: "Король", translatedWord: "King")] // later data will come from realm
-        let _historyItems = BehaviorSubject<[HistoryItem]>(value: [])
-        _historyItems.onNext(mockHistoryData)
+            }
         
-        historyItems = _historyItems.asObserver()
+        historyItems = realmService.obtain(of: HistoryItem.self)
+            .map {
+                return $0 as? [HistoryItem] ?? [HistoryItem()]
+            }
     }
 }

@@ -20,13 +20,12 @@ class RealmService {
         Observable.of(object)
             .subscribe(realm.rx.add())
             .disposed(by: disposeBag)
-            
     }
     
     func obtain(of type: Object.Type) -> Observable<[Object]> {
         let objects = realm.objects(type)
         
         return Observable.array(from: objects)
-            .map { Array($0) } 
+            .map { Array($0) }
     }
 }

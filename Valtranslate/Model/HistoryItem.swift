@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct HistoryItem {
-    let wordToTranslate: String
-    let translatedWord: String 
+@objcMembers
+class HistoryItem: Object {
+    dynamic var wordToTranslate = String()
+    dynamic var translatedWord = String()
+    dynamic var isBookmarked = false 
 }

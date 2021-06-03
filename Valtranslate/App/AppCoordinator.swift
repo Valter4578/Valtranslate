@@ -18,8 +18,10 @@ class AppCoordinator: Coordinator {
     func start() {
         let viewController = TranslateViewController()
         viewController.coordinator = self
-        let networkManager = NetworkManager() 
-        viewController.viewModel = TranslateViewModel(networkManager: networkManager)
+        
+        let networkManager = NetworkManager()
+        let realmService = RealmService()
+        viewController.viewModel = TranslateViewModel(networkManager: networkManager, realmService: realmService)
         
         navigationController.pushViewController(viewController, animated: false)
         
